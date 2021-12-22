@@ -8,6 +8,9 @@ on:
 
 jobs:
   Build:
+    name: Build Sam App
+    runs-on: ubuntu-latest
+
     steps:
       - name: Create folders
         run: |
