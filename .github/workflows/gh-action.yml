@@ -19,11 +19,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          repository: ${{ github.repository }}/server
           path: ./repo
 
       - name: Build the app
-        working-directory: ./repo
+        working-directory: ./repo/server
         run: |
           sam build --use-container -t tenant-template.yaml
           
@@ -47,7 +46,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy to Dev Account
-        working-directory: ./repo
+        working-directory: ./repo/server
         run: |
           sam deploy --config-env dev --no-confirm-changeset
 
@@ -71,6 +70,6 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
           
       - name: Deploy the Prod if dev deployment succeeds
-        working-directory: ./repo
+        working-directory: ./repo/server
         run: |
           sam deploy --config-env prod --no-confirm-changeset
