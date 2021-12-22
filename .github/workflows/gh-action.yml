@@ -48,7 +48,7 @@ jobs:
       - name: Deploy to Dev Account
         working-directory: ./repo/server
         run: |
-          sam deploy --config-env dev --no-confirm-changeset
+          sam deploy --config-env dev --no-confirm-changeset --stack-name serverless-saas-app-ghactions-dev
 
   DeploytoProd:
     needs: [Build, DeploytoDev]
@@ -72,4 +72,4 @@ jobs:
       - name: Deploy the Prod if dev deployment succeeds
         working-directory: ./repo/server
         run: |
-          sam deploy --config-env prod --no-confirm-changeset
+          sam deploy --config-env prod --no-confirm-changeset --stack-name serverless-saas-app-ghactions
