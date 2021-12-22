@@ -19,7 +19,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          path: ./repo
+          path: ./repo/server
 
       - name: Build the app
         working-directory: ./repo
