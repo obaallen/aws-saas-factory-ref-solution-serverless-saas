@@ -1,4 +1,4 @@
-name: SAM sample application
+name: Bootstrap Application
 
 on: workflow_dispatch
 #  push:

@@ -1,4 +1,4 @@
-name: SAM sample application
+name: Backend application
 
 on: workflow_dispatch
 
