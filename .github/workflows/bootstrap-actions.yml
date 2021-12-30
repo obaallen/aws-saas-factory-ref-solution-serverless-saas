@@ -48,7 +48,7 @@ jobs:
       - name: Deploy to Dev Account
         working-directory: ./repo/server
         run: |
-          sam deploy --config-env dev -t bootstrap-template.yaml --no-confirm-changeset --stack-name serverless-saas-app-ghactions-dev --s3-bucket aws-sam-dev-ghactions --parameter-overrides AdminEmailParameter=obayalle@amazon.com --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND
+          sam deploy --config-env dev -t bootstrap-template.yaml --no-confirm-changeset --stack-name serverless-saas-ghactions-dev --s3-bucket aws-sam-dev-ghactions --parameter-overrides AdminEmailParameter=obayalle@amazon.com --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND
 
   DeploytoProd:
     needs: [Build, DeploytoDev]
@@ -72,4 +72,4 @@ jobs:
       - name: Deploy the Prod if dev deployment succeeds
         working-directory: ./repo/server
         run: |
-          sam deploy --config-env prod -t bootstrap-template.yaml --no-confirm-changeset --stack-name serverless-saas-app-ghactions --s3-bucket aws-sam-prod-ghactions --parameter-overrides AdminEmailParameter=obayalle@amazon.com --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND
+          sam deploy --config-env prod -t bootstrap-template.yaml --no-confirm-changeset --stack-name serverless-saas-ghactions --s3-bucket aws-sam-prod-ghactions --parameter-overrides AdminEmailParameter=obayalle@amazon.com --capabilities CAPABILITY_IAM CAPABILITY_AUTO_EXPAND
